@@ -1,0 +1,158 @@
+/*Début Login Card*/
+/* A déplacer dans un fichier CSS speciale pour la page de login*/
+.loginCard{
+	position:relative;
+	width: 600px;
+	height: 359px;
+	/*border: auto 0 auto 0;*/
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+
+	border: 1px blue;
+
+	background: rgb(3,122,204); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(3,122,204,1) 0%, rgba(7,75,160,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(3,122,204,1)), color-stop(100%,rgba(7,75,160,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(3,122,204,1) 0%,rgba(7,75,160,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(3,122,204,1) 0%,rgba(7,75,160,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(3,122,204,1) 0%,rgba(7,75,160,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(3,122,204,1) 0%,rgba(7,75,160,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#037acc', endColorstr='#074ba0',GradientType=0 ); /* IE6-9 */
+
+	-webkit-box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cardReflect {
+	position: absolute;
+	/*z-index: 10;*/
+	width: 596px;
+	height: 355px;
+	top: 2px ;
+	left:2px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	background: -moz-linear-gradient(20deg,transparent 65%,rgba(255, 255, 255, 0.35) 66%,rgba(255, 255, 255, 0) 100%);
+	background: -webkit-gradient(linear,left top,left bottom,from(rgba(255, 255, 255, 0.6)),color-stop(65%,rgba(255, 255, 255, 0)));
+	-webkit-mask-image: -webkit-gradient(linear,0 350,280 248,color-stop(65%,rgba(255,255,255,0)),color-stop(65.1%,rgba(255,255,255,1)));
+}
+
+#magneticBand {
+	position: absolute;
+	/*z-index: 11;*/
+	width: 600px;
+	height: 72px;
+	top: 20px;
+	background: #000;
+
+	background: rgb(76,76,76); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(76,76,76,1) 0%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(60%,rgba(17,17,17,1)), color-stop(76%,rgba(43,43,43,1)), color-stop(91%,rgba(28,28,28,1)), color-stop(100%,rgba(19,19,19,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(76,76,76,1) 0%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+#nameBand {
+	position: absolute;
+	/*z-index: 12;*/
+	/*width: 538px;*/
+	/*height: 43px;*/
+	top: 120px;
+	left: 31px;
+	/*background: #aaa;*/
+	background: #f1f1f1 url("../../img/bgNameBand.png");
+	/*padding: 3px;*/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	border: none;
+
+}
+
+#nameBand #Email{
+	border: none;
+	background: none;
+	box-shadow: none;
+	color: #222;
+	border-bottom: 1px double grey;
+	width: 525px;
+	height: 30px;
+	margin: 3px;
+
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+/*.loginCard input::-webkit-input-placeholder {
+    color:    #aaa;
+}
+.loginCard input:-moz-placeholder {
+    color:    #aaa;
+}*/
+
+#pwdBand{
+	position: absolute;
+	/*z-index: 13;*/
+	/*width: 168px;
+	height: 43px;*/
+	top: 209px;
+	left: 31px;
+	/*padding: 3px;*/
+	background: #f1f1f1;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+#pwdBand #Password{
+	border: none;
+	background: none;
+	box-shadow: none;
+	color: #222;
+	border-bottom: 1px double grey;
+	background: #f1f1f1 url("../../img/bgNameBand.png");
+	width: 130px;
+	height: 30px;
+	margin: 3px;
+
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+#secure {
+	/*position: absolute;
+	bottom: 5px;
+	right: 5px;*/
+	float: left;
+}
+
+.loginCard input[type="submit"]{
+	position: absolute;
+	bottom: 15px;
+	right: 28px;
+	height: 36px;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgba(241,241,241,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,248,249,1)), color-stop(100%,rgba(241,241,241,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(241,241,241,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(241,241,241,1) 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(241,241,241,1) 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66f6f8f9', endColorstr='#b3f1f1f1',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, rgba(246,248,249,1) 0%,rgba(241,241,241,1) 100%); /* W3C */
+}
+/*Fin login card*/

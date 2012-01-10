@@ -1,0 +1,27 @@
+/* BEGIN: Footer */
+body > footer {
+	width: 1024px;
+	margin: 30px auto 0 auto;
+	padding: 0;
+	padding-bottom: 30px;
+
+	text-align: center;
+	font-size: small;
+}
+
+body > footer nav ul {
+	list-style: none;
+}
+
+body > footer nav ul li {
+	display: inline;
+}
+
+body > footer nav ul li:after {
+	content: "";
+}
+
+body > footer nav ul li:last-child:after {
+	content: "";
+}
+/* END: Footer */
