@@ -10,7 +10,7 @@ abstract class Connector extends \lithium\core\Object {
 	);
 
 	protected $_scripts = array(
-		'SG' => '/home/marcghorayeb/tools/connectors/sg.py'
+		'SG' => '/home/admin/tools/connectors/sg.py'
 	);
 	
 	protected $_results = array();
