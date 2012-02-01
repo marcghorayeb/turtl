@@ -1,6 +1,15 @@
 turtl - Bank account aggregator
 
+Requires:
+- lithium
+- li3_swiftmailer
+- li3_flash
+- swiftmailer
+
 Todo:
 - Bank connectors
 - Graphics
 - Mail summaries
+
+License:
+You can reuse this code as you want and modify it as you seem fit. Just give the copyright when due.
