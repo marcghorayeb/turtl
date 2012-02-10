@@ -7,19 +7,19 @@ Requiremed libraries
 Clone the following libraries into a libraries folder (next to the main app folder).
 
 - lithium
-```jinja
+```
 git clone git://github.com/UnionOfRAD/lithium.git
 ```
 - li3_swiftmailer
-```jinja
+```
 git clone git://github.com/greut/li3_swiftmailer.git
 ```
 - li3_flash
-```jinja
+```
 git clone git://github.com/rich97/li3_flash.git
 ```
 - swiftmailer
-```jinja
+```
 git clone https://github.com/swiftmailer/swiftmailer.git
 ```
 
