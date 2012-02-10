@@ -8,7 +8,7 @@ use DateTime;
 class SG extends \app\extensions\data\Connector {
 	protected function _init() {
 		parent::_init();
-		
+
 		$this->_config['bank'] = 'SG';
 	}
 
@@ -133,7 +133,7 @@ class SG extends \app\extensions\data\Connector {
 				}
 			}
 		);
-		
+
 		array_walk_recursive(
 			$this->_transactions,
 			function (&$value, $field) {

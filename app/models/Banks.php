@@ -12,7 +12,7 @@ class Banks extends \app\models\AppBaseModel {
 		'_id' => array('type' => 'id'),
 		'created' => array('type' => 'date'),
 		'modified' => array('type' => 'date'),
-		
+
 		'title' => array('type' => 'string'),
 		'short_title' => array('type' => 'string'),
 
@@ -24,20 +24,20 @@ class Banks extends \app\models\AppBaseModel {
 		'templates.cheque' => array('type' => 'string', 'array' => true, 'default' => array()),
 		'templates.virement' => array('type' => 'string', 'array' => true, 'default' => array())
 	);
-	
+
 	public $validates = array(
 		'title' => 'notEmpty',
 		'short_title' => 'notEmpty',
 	);
-	
+
 	/**
 	 * Erase all banks and start from fresh
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function initialise() {
 		self::remove();
-		
+
 		$banks = array(
 			array(
 				'title' => 'Société Générale',
@@ -51,13 +51,13 @@ class Banks extends \app\models\AppBaseModel {
 				)
 			)
 		);
-		
+
 		foreach ($banks as $b) {
 			$bank = self::create($b);
 			$bank->save();
 		}
 	}
-	
+
 	public function templates($entity) {
 		$templates = $entity->templates->to('array');
 
@@ -110,15 +110,15 @@ class Banks extends \app\models\AppBaseModel {
 /*Banks::applyFilter('create', function($self, $params, $chain) {
 	$defaults = array(
 	);
-	
+
 	$params['data'] = $params['data'] + $defaults;
-	
+
 	return $chain->next($self, $params, $chain);
 });*/
 
 Banks::applyFilter('validate', function ($self, $params, $chain) {
 	$params['entity']->cleanTemplates();
-	
+
 	return $chain->next($self, $params, $chain);
 });
 ?>

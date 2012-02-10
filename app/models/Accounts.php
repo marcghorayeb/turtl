@@ -29,12 +29,12 @@ class Accounts extends \app\models\AppBaseModel {
 		'title' => array('type' => 'string', 'default' => ''),
 		'bankCode' => array('type' => 'string', 'default' => ''),
 		'agencyCode' => array('type' => 'string', 'default' => ''),
-		
+
 		'period' => array('type' => 'object'),
 		'period.start' => array('type' => 'date'),
 		'period.end' => array('type' => 'date'),
 		'period.activityCount' => array('type' => 'integer', 'default' => 0),
-		
+
 		'balance' => array('type' => 'object'),
 		'balance.date' => array('type' => 'date'),
 		'balance.amount' => array('type' => 'float', 'default' => 0),
@@ -46,7 +46,7 @@ class Accounts extends \app\models\AppBaseModel {
 
 		'snapshots' => array('type' => 'object', 'array' => true, 'default' => array())
 	);
-	
+
 	public $validates = array(
 		'id' => 'notEmpty',
 		'user_id' => 'notEmpty',
@@ -63,7 +63,7 @@ class Accounts extends \app\models\AppBaseModel {
 
 	/**
 	 * Creates and returns a data parser for a given $filepath and $bank.
-	 * 
+	 *
 	 * @see app\extensions\data\Parser
 	 * @param string $filepath Path to the bank file to be parsed.
 	 * @param string $bank Bank name which determines the file format for the parser.
@@ -77,7 +77,7 @@ class Accounts extends \app\models\AppBaseModel {
 			'guessBank' => $guessBank,
 			'readFile' => true
 		));
-		
+
 		return $parser;
 	}*/
 
@@ -108,7 +108,7 @@ class Accounts extends \app\models\AppBaseModel {
 	 */
 	public function makeConnector($entity) {
 		$bank = Banks::first($entity->bank_id);
-		
+
 		if (empty($this->_connector) && !empty($bank)) {
 			$this->_connector = self::createConnector(
 				$bank->short_title,
@@ -130,7 +130,7 @@ class Accounts extends \app\models\AppBaseModel {
 		if (!empty($this->_connector)) {
 			$lastAccess = $entity->portal->lastAccess->sec;
 			$now = time();
-			
+
 			// Make sure you didn't already scrape in the last hour. Let's not spam the website.
 			//if (empty($lastAccess) || ($now - $lastAccess) > 3600) {
 				$entity->portal->lastAccess = $now;
@@ -155,10 +155,10 @@ class Accounts extends \app\models\AppBaseModel {
 
 		return array();
 	}
-	
+
 	/**
 	 * Inputs transactions into the database for a given account.
-	 * 
+	 *
 	 * @param object $entity
 	 * @param array $transactions List of transactions to be inserted in the database.
 	 */
@@ -167,11 +167,11 @@ class Accounts extends \app\models\AppBaseModel {
 		$account_id = (string) $entity->_id;
 		$bank = Banks::first($entity->bank_id);
 		$keys = compact('user_id', 'account_id');
-		
+
 		foreach ($transactions as $transaction) {
 			$data = $keys + $transaction;
 			$t = Transactions::create($data);
-			
+
 			if ($t->validates()) {
 				$t->populateDetails($bank);
 				$t->guessCategory();
@@ -190,7 +190,7 @@ class Accounts extends \app\models\AppBaseModel {
 	 * $existingAccount->mergeHeaders($newAccount)
 	 * $existingAccount->save();
 	 * }}}
-	 * 
+	 *
 	 * @see app\models\Accounts::buildSnapshots
 	 * @param object $entity Existing account.
 	 * @param object $source New account from which data will be copied into $entity.
@@ -198,7 +198,7 @@ class Accounts extends \app\models\AppBaseModel {
 	public function mergeHeaders($destination, $source) {
 		$date1 = $destination->balance->date->sec;
 		$date2 = $source->balance->date->sec;
-		
+
 		if ($date1 < $date2) {
 			$destination['balance']['date'] = $source['balance']['date'];
 			$destination['balance']['amount'] = $source['balance']['amount'];
@@ -218,10 +218,10 @@ class Accounts extends \app\models\AppBaseModel {
 			$destination->period->end = $source->period->end;
 		}
 	}
-	
+
 	/**
 	 * Returns a list of MongoIds for a given list of Accounts.
-	 * 
+	 *
 	 * @param array $accounts
 	 */
 	public static function getIds($accounts) {
@@ -230,14 +230,14 @@ class Accounts extends \app\models\AppBaseModel {
 		foreach ($accounts as $account) {
 			$ids[] = (string) $account->_id;
 		}
-		
+
 		return $ids;
 	}
 
 	/**
 	 * Builds snapshots based on a per-month basis for a list of given transactions.
 	 * Stores the result in `$entity->snapshots`.
-	 * 
+	 *
 	 * @see app\models\Accounts::buildSnapshots
 	 * @param object $entity
 	 * @todo Optimize loop.
@@ -269,7 +269,7 @@ class Accounts extends \app\models\AppBaseModel {
 	/**
 	 * Builds snapshots based on a per-month basis for a list of given transactions.
 	 * Stores the result in the $snapshots field.
-	 * 
+	 *
 	 * @see app\models\Accounts::buildSnapshot
 	 * @todo Optimize loop.
 	 */
@@ -299,7 +299,7 @@ class Accounts extends \app\models\AppBaseModel {
 	/**
 	 * Builds a snapshot out of a list of transactions.
 	 * A snapshot totals the debits, credits, and transaction count (activityCount).
-	 * 
+	 *
 	 * Example:
 	 * {{{
 	 * $transactions = Transactions::all();
@@ -307,7 +307,7 @@ class Accounts extends \app\models\AppBaseModel {
 	 * }}}
 	 *
 	 * Usefull when building snapshots on a per-month basis.
-	 * 
+	 *
 	 * @see app\models\Accounts::buildSnapshots
 	 * @param array $transactions
 	 * @return array Array containing the total of debit, credit, and activityCount.
@@ -323,7 +323,7 @@ class Accounts extends \app\models\AppBaseModel {
 
 		return $snapshot;
 	}
-	
+
 	// ******************************************
 	// Bridges
 	// ******************************************
@@ -340,7 +340,7 @@ class Accounts extends \app\models\AppBaseModel {
 	/**
 	 * Returns a list of periods available for a list of accounts.
 	 * A period is usually a month designated by the format `mm-yyyy`.
-	 * 
+	 *
 	 * @param array $accounts List of accounts.
 	 * @return array Periods for the accounts given.
 	 */

@@ -1,0 +1,3 @@
+[submodule "app/libraries/weboob"]
+	path = app/libraries/weboob
+	url = git://git.symlink.me/pub/romain/weboob-stable.git
