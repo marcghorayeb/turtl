@@ -2,7 +2,7 @@ turtl - Bank account aggregator
 ===============================
 
 
-Requiremed libraries
+Required libraries
 --------------------
 Clone the following libraries into a libraries folder (next to the main app folder).
 
